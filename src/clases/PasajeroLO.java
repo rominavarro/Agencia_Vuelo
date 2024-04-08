@@ -6,8 +6,8 @@ public class PasajeroLO extends Pasajero{
     private String dia_salida;
     
 
-    public PasajeroLO(String dia_salida, String num_ident, String destino, String nombre) {
-        super(num_ident, destino, nombre);
+    public PasajeroLO(String dia_salida, String num_ident, String destino) {
+        super(num_ident, destino);
         this.dia_salida = dia_salida;
         
     }

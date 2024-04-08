@@ -1,14 +1,16 @@
 
 package clases;
 
+import java.util.List;
+
 public class Vuelo_Privado extends Vuelo{
     //Atributos de la clase
     private String hora_llegada;
     
     //Metodo constructor
 
-    public Vuelo_Privado(String hora_llegada, String num_vuelo, String destino, String piloto, int cant_asientos, float km_recorridos) {
-        super(num_vuelo, destino, piloto, cant_asientos, km_recorridos);
+    public Vuelo_Privado(String hora_llegada, String num_vuelo, String destino, String piloto, int cant_asientos, float km_recorridos, List ListaPasajero) {
+        super(num_vuelo, destino, piloto, cant_asientos, km_recorridos, ListaPasajero);
         this.hora_llegada = hora_llegada;
     }
     

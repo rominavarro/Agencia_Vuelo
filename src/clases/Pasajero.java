@@ -5,15 +5,15 @@ public abstract class Pasajero {
     //Atributos de la clase
     protected String num_ident;
     protected String destino;
-    protected String nombre;
+    
     
     
     //Metodo Constructor
 
-    public Pasajero(String num_ident, String destino, String nombre) {
+    public Pasajero(String num_ident, String destino) {
         this.num_ident = num_ident;
         this.destino = destino;
-        this.nombre = nombre;
+        
     }
     
     //Metodos Getter and Setter
@@ -33,4 +33,6 @@ public abstract class Pasajero {
     public void setDestino(String destino) {
         this.destino = destino;
     }
+
+    
 }

@@ -1,6 +1,8 @@
 
 package clases;
 
+import java.util.List;
+
 public class Vuelo_Comercial extends Vuelo{
     //Atributos clase 
     private String hora_salida;
@@ -8,8 +10,8 @@ public class Vuelo_Comercial extends Vuelo{
     
     //Metodo Constructor
 
-    public Vuelo_Comercial(String hora_salida, String num_vuelo, String destino, String piloto, int cant_asientos, float km_recorridos) {
-        super(num_vuelo, destino, piloto, cant_asientos, km_recorridos);
+    public Vuelo_Comercial(String hora_salida, String num_vuelo, String destino, String piloto, int cant_asientos, float km_recorridos, List ListaPasajero) {
+        super(num_vuelo, destino, piloto, cant_asientos, km_recorridos, ListaPasajero);
         this.hora_salida = hora_salida;
     }
     
