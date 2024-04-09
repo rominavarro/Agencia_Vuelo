@@ -1,18 +1,25 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Interfaz;
 
-/**
- *
- * @author Romi PC
- */
-public class Graphic_Interface extends javax.swing.JFrame {
+import clases.Agencia;
+import clases.Pasajero;
+import clases.Fichero;
+import clases.PasajeroLE;
+import clases.PasajeroLO;
+import clases.Vuelo;
+import clases.Vuelo_Comercial;
+import clases.Vuelo_Privado;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
-    /**
-     * Creates new form Graphic_Interface
-     */
+
+
+public class Graphic_Interface extends javax.swing.JFrame {
+    DefaultListModel arreglo_mod = new DefaultListModel();
+    
+    
     public Graphic_Interface() {
         initComponents();
     }
@@ -27,24 +34,24 @@ public class Graphic_Interface extends javax.swing.JFrame {
     private void initComponents() {
 
         background = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        SectionPanel = new javax.swing.JPanel();
         ADESTINY = new javax.swing.JLabel();
         Agencia = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        ListaOficialPasajeros = new javax.swing.JButton();
+        ListaEsperaPasajeros = new javax.swing.JButton();
+        ContarPasajeroxDestino = new javax.swing.JButton();
+        BuscarVueloxPasajero = new javax.swing.JButton();
+        MostrarVueloxDestino = new javax.swing.JButton();
+        CalcularIngresoxVuelo = new javax.swing.JButton();
         Copyright = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        PanelInformacion = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         background.setBackground(new java.awt.Color(255, 255, 255));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 255));
+        SectionPanel.setBackground(new java.awt.Color(0, 153, 255));
 
         ADESTINY.setFont(new java.awt.Font("Helvetica", 1, 36)); // NOI18N
         ADESTINY.setForeground(new java.awt.Color(255, 255, 255));
@@ -54,155 +61,155 @@ public class Graphic_Interface extends javax.swing.JFrame {
         Agencia.setForeground(new java.awt.Color(255, 255, 255));
         Agencia.setText("AGENCIA DE VUELOS");
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 153, 255));
-        jButton1.setText("Lista Oficial de Pasajeros");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 255), new java.awt.Color(102, 102, 102), null));
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        ListaOficialPasajeros.setBackground(new java.awt.Color(255, 255, 255));
+        ListaOficialPasajeros.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        ListaOficialPasajeros.setForeground(new java.awt.Color(0, 153, 255));
+        ListaOficialPasajeros.setText("Lista Oficial de Pasajeros");
+        ListaOficialPasajeros.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 255), new java.awt.Color(102, 102, 102), null));
+        ListaOficialPasajeros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ListaOficialPasajeros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ListaOficialPasajerosActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 153, 255));
-        jButton2.setText("Lista de Espera Pasajeros");
-        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 255), new java.awt.Color(102, 102, 102), null));
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        ListaEsperaPasajeros.setBackground(new java.awt.Color(255, 255, 255));
+        ListaEsperaPasajeros.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        ListaEsperaPasajeros.setForeground(new java.awt.Color(0, 153, 255));
+        ListaEsperaPasajeros.setText("Lista de Espera Pasajeros");
+        ListaEsperaPasajeros.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 255), new java.awt.Color(102, 102, 102), null));
+        ListaEsperaPasajeros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ListaEsperaPasajeros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                ListaEsperaPasajerosActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jButton3.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 153, 255));
-        jButton3.setText("Contar Pasajeros por Destino");
-        jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 255), new java.awt.Color(102, 102, 102), null));
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        ContarPasajeroxDestino.setBackground(new java.awt.Color(255, 255, 255));
+        ContarPasajeroxDestino.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        ContarPasajeroxDestino.setForeground(new java.awt.Color(0, 153, 255));
+        ContarPasajeroxDestino.setText("Contar Pasajeros por Destino");
+        ContarPasajeroxDestino.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 255), new java.awt.Color(102, 102, 102), null));
+        ContarPasajeroxDestino.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ContarPasajeroxDestino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                ContarPasajeroxDestinoActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(0, 153, 255));
-        jButton4.setText("Buscar vuelo por pasajero");
-        jButton4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 255), new java.awt.Color(102, 102, 102), null));
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        BuscarVueloxPasajero.setBackground(new java.awt.Color(255, 255, 255));
+        BuscarVueloxPasajero.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        BuscarVueloxPasajero.setForeground(new java.awt.Color(0, 153, 255));
+        BuscarVueloxPasajero.setText("Buscar vuelo por pasajero");
+        BuscarVueloxPasajero.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 255), new java.awt.Color(102, 102, 102), null));
+        BuscarVueloxPasajero.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BuscarVueloxPasajero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                BuscarVueloxPasajeroActionPerformed(evt);
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(255, 255, 255));
-        jButton5.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(0, 153, 255));
-        jButton5.setText("Mostrar Vuelo por Destino");
-        jButton5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 255), new java.awt.Color(102, 102, 102), null));
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        MostrarVueloxDestino.setBackground(new java.awt.Color(255, 255, 255));
+        MostrarVueloxDestino.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        MostrarVueloxDestino.setForeground(new java.awt.Color(0, 153, 255));
+        MostrarVueloxDestino.setText("Mostrar Vuelo por Destino");
+        MostrarVueloxDestino.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 255), new java.awt.Color(102, 102, 102), null));
+        MostrarVueloxDestino.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MostrarVueloxDestino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                MostrarVueloxDestinoActionPerformed(evt);
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(255, 255, 255));
-        jButton6.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(0, 153, 255));
-        jButton6.setText("Calcular ingresos por Vuelo");
-        jButton6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 255), new java.awt.Color(102, 102, 102), null));
-        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        CalcularIngresoxVuelo.setBackground(new java.awt.Color(255, 255, 255));
+        CalcularIngresoxVuelo.setFont(new java.awt.Font("Helvetica", 0, 16)); // NOI18N
+        CalcularIngresoxVuelo.setForeground(new java.awt.Color(0, 153, 255));
+        CalcularIngresoxVuelo.setText("Calcular ingresos por Vuelo");
+        CalcularIngresoxVuelo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 255), new java.awt.Color(102, 102, 102), null));
+        CalcularIngresoxVuelo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CalcularIngresoxVuelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                CalcularIngresoxVueloActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout SectionPanelLayout = new javax.swing.GroupLayout(SectionPanel);
+        SectionPanel.setLayout(SectionPanelLayout);
+        SectionPanelLayout.setHorizontalGroup(
+            SectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SectionPanelLayout.createSequentialGroup()
+                .addGroup(SectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SectionPanelLayout.createSequentialGroup()
                         .addGap(67, 67, 67)
                         .addComponent(ADESTINY))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(SectionPanelLayout.createSequentialGroup()
                         .addGap(103, 103, 103)
                         .addComponent(Agencia))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(SectionPanelLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(ListaOficialPasajeros, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(SectionPanelLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(ListaEsperaPasajeros, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(SectionPanelLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(ContarPasajeroxDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(SectionPanelLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(BuscarVueloxPasajero, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(SectionPanelLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(MostrarVueloxDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(SectionPanelLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(CalcularIngresoxVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(54, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        SectionPanelLayout.setVerticalGroup(
+            SectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SectionPanelLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(ADESTINY)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Agencia)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ListaOficialPasajeros, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ListaEsperaPasajeros, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ContarPasajeroxDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BuscarVueloxPasajero, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(MostrarVueloxDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CalcularIngresoxVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66))
         );
 
-        background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 500));
+        background.add(SectionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 500));
 
         Copyright.setFont(new java.awt.Font("Helvetica", 1, 10)); // NOI18N
         Copyright.setForeground(new java.awt.Color(102, 102, 102));
         Copyright.setText("Copyright (c) 2024 ADESTINY Reserved Rights");
         background.add(Copyright, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 470, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(153, 204, 255));
-        jPanel2.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel2.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
+        PanelInformacion.setBackground(new java.awt.Color(153, 204, 255));
+        PanelInformacion.setForeground(new java.awt.Color(0, 0, 0));
+        PanelInformacion.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout PanelInformacionLayout = new javax.swing.GroupLayout(PanelInformacion);
+        PanelInformacion.setLayout(PanelInformacionLayout);
+        PanelInformacionLayout.setHorizontalGroup(
+            PanelInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 430, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        PanelInformacionLayout.setVerticalGroup(
+            PanelInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 380, Short.MAX_VALUE)
         );
 
-        background.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 430, 380));
+        background.add(PanelInformacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 430, 380));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -218,29 +225,29 @@ public class Graphic_Interface extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void ListaOficialPasajerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaOficialPasajerosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_ListaOficialPasajerosActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void ListaEsperaPasajerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaEsperaPasajerosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_ListaEsperaPasajerosActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void ContarPasajeroxDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContarPasajeroxDestinoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_ContarPasajeroxDestinoActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void BuscarVueloxPasajeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarVueloxPasajeroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_BuscarVueloxPasajeroActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void MostrarVueloxDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarVueloxDestinoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_MostrarVueloxDestinoActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void CalcularIngresoxVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcularIngresoxVueloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_CalcularIngresoxVueloActionPerformed
 
     /**
      * @param args the command line arguments
@@ -268,7 +275,10 @@ public class Graphic_Interface extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Graphic_Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
+        // Leer el Fichero
+        Fichero.leerArchivo();
+       
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -280,15 +290,15 @@ public class Graphic_Interface extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ADESTINY;
     private javax.swing.JLabel Agencia;
+    private javax.swing.JButton BuscarVueloxPasajero;
+    private javax.swing.JButton CalcularIngresoxVuelo;
+    private javax.swing.JButton ContarPasajeroxDestino;
     private javax.swing.JLabel Copyright;
+    private javax.swing.JButton ListaEsperaPasajeros;
+    private javax.swing.JButton ListaOficialPasajeros;
+    private javax.swing.JButton MostrarVueloxDestino;
+    private javax.swing.JPanel PanelInformacion;
+    private javax.swing.JPanel SectionPanel;
     private javax.swing.JPanel background;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
